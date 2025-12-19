@@ -6,7 +6,7 @@ let board = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
 let gameActive = true;
 
-// Difficulty: "easy", "medium", "hard"
+// difficulty: "easy", "medium", "hard"
 let difficulty = "medium";
 
 const winningCombos = [
@@ -15,7 +15,7 @@ const winningCombos = [
   [0,4,8], [2,4,6]
 ];
 
-// -------- AI Functions --------
+//AI Functions
 function aiRandomMove(board) {
   const emptyCells = board
     .map((cell, index) => cell === "" ? index : null)
@@ -77,7 +77,7 @@ function aiPerfectMove(board){
   return minimax(board,"O").index;
 }
 
-// -------- Game Functions --------
+// Game Functions
 function handleCellClick(e){
   const index = e.target.dataset.index;
 
@@ -130,7 +130,7 @@ function resetGame(){
   cells.forEach(cell=>cell.textContent="");
 }
 
-// -------- Event Listeners --------
+// Event Listeners
 cells.forEach(cell=>cell.addEventListener("click", handleCellClick));
 resetBtn.addEventListener("click", resetGame);
 
