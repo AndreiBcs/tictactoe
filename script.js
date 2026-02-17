@@ -1,6 +1,6 @@
 const cells = document.querySelectorAll('.cell');
 const resetBtn = document.getElementById('reset');
-const difficultySelect = document.getElementById('difficulty'); // optional dropdown
+const difficultySelect = document.getElementById('difficulty'); 
 
 let board = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
@@ -15,7 +15,7 @@ const winningCombos = [
   [0,4,8], [2,4,6]
 ];
 
-//AI Functions
+
 function aiRandomMove(board) {
   const emptyCells = board
     .map((cell, index) => cell === "" ? index : null)
@@ -40,7 +40,7 @@ function aiMediumMove(board, aiPlayer="O", human="X") {
       return combo[cells.indexOf("")];
     }
   }
-  // Otherwise random
+  
   return aiRandomMove(board);
 }
 
@@ -85,7 +85,6 @@ function handleCellClick(e){
 
   makeMove(index);
 
-  // AI Turn
   if(gameActive && currentPlayer==="O"){
     setTimeout(()=>{
       let aiMove;
@@ -130,7 +129,6 @@ function resetGame(){
   cells.forEach(cell=>cell.textContent="");
 }
 
-// Event Listeners
 cells.forEach(cell=>cell.addEventListener("click", handleCellClick));
 resetBtn.addEventListener("click", resetGame);
 
